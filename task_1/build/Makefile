@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shelestun/parallelism_theory/parallelism-theory
+CMAKE_SOURCE_DIR = /home/shelestun/parallelism_theory/parallelism-theory/task_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shelestun/parallelism_theory/parallelism-theory/build
+CMAKE_BINARY_DIR = /home/shelestun/parallelism_theory/parallelism-theory/task_1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/build/CMakeFiles /home/shelestun/parallelism_theory/parallelism-theory/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles /home/shelestun/parallelism_theory/parallelism-theory/task_1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named array_program
+# Target rules for targets named array_program.out
 
 # Build rule for target.
-array_program: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_program
-.PHONY : array_program
+array_program.out: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_program.out
+.PHONY : array_program.out
 
 # fast build rule for target.
-array_program/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/build
-.PHONY : array_program/fast
+array_program.out/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/build
+.PHONY : array_program.out/fast
 
 task_1.o: task_1.cpp.o
 .PHONY : task_1.o
 
 # target to build an object file
 task_1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/task_1.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/task_1.cpp.o
 .PHONY : task_1.cpp.o
 
 task_1.i: task_1.cpp.i
@@ -142,7 +142,7 @@ task_1.i: task_1.cpp.i
 
 # target to preprocess a source file
 task_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/task_1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/task_1.cpp.i
 .PHONY : task_1.cpp.i
 
 task_1.s: task_1.cpp.s
@@ -150,7 +150,7 @@ task_1.s: task_1.cpp.s
 
 # target to generate assembly for a file
 task_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/task_1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/task_1.cpp.s
 .PHONY : task_1.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... array_program"
+	@echo "... array_program.out"
 	@echo "... task_1.o"
 	@echo "... task_1.i"
 	@echo "... task_1.s"

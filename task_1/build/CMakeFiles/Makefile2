@@ -54,16 +54,16 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shelestun/parallelism_theory/parallelism-theory
+CMAKE_SOURCE_DIR = /home/shelestun/parallelism_theory/parallelism-theory/task_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shelestun/parallelism_theory/parallelism-theory/build
+CMAKE_BINARY_DIR = /home/shelestun/parallelism_theory/parallelism-theory/task_1/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/array_program.dir/all
+all: CMakeFiles/array_program.out.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/array_program.dir/clean
+clean: CMakeFiles/array_program.out.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/array_program.dir
+# Target rules for target CMakeFiles/array_program.out.dir
 
 # All Build rule for target.
-CMakeFiles/array_program.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/shelestun/parallelism_theory/parallelism-theory/build/CMakeFiles --progress-num=1,2 "Built target array_program"
-.PHONY : CMakeFiles/array_program.dir/all
+CMakeFiles/array_program.out.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles --progress-num=1,2 "Built target array_program.out"
+.PHONY : CMakeFiles/array_program.out.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/array_program.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/array_program.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/build/CMakeFiles 0
-.PHONY : CMakeFiles/array_program.dir/rule
+CMakeFiles/array_program.out.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/array_program.out.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles 0
+.PHONY : CMakeFiles/array_program.out.dir/rule
 
 # Convenience name for target.
-array_program: CMakeFiles/array_program.dir/rule
-.PHONY : array_program
+array_program.out: CMakeFiles/array_program.out.dir/rule
+.PHONY : array_program.out
 
 # clean rule for target.
-CMakeFiles/array_program.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.dir/build.make CMakeFiles/array_program.dir/clean
-.PHONY : CMakeFiles/array_program.dir/clean
+CMakeFiles/array_program.out.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_program.out.dir/build.make CMakeFiles/array_program.out.dir/clean
+.PHONY : CMakeFiles/array_program.out.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
