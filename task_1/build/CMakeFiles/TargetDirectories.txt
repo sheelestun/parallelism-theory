@@ -1,3 +1,0 @@
-/home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles/array_program.out.dir
-/home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles/edit_cache.dir
-/home/shelestun/parallelism_theory/parallelism-theory/task_1/build/CMakeFiles/rebuild_cache.dir
