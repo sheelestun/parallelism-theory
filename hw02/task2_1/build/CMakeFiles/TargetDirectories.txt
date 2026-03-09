@@ -1,0 +1,3 @@
+/home/d.shelestov/tasks/hw02/task2_1/build/CMakeFiles/test.out.dir
+/home/d.shelestov/tasks/hw02/task2_1/build/CMakeFiles/edit_cache.dir
+/home/d.shelestov/tasks/hw02/task2_1/build/CMakeFiles/rebuild_cache.dir
