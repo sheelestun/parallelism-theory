@@ -59,6 +59,7 @@ double solve_v2(const std::vector<double>& A, const std::vector<double>& b, int 
     
     omp_set_num_threads(threads);
     double t0 = omp_get_wtime();
+    int done = 0;
     
     #pragma omp parallel
     {
@@ -75,9 +76,9 @@ double solve_v2(const std::vector<double>& A, const std::vector<double>& b, int 
             for (int i = 0; i < N; i++)
                 x[i] = x_new[i];
             
-            int done = 0;
             #pragma omp single
             {
+                done = 0;
                 if (norm(x, x_new) < TOL) {
                     done = 1;
                 }
