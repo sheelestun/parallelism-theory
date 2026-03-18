@@ -21,6 +21,19 @@ void init_data(std::vector<double>& a, std::vector<double>& b, int m, int n) {
     }
 }
 
+// void init_data(std::vector<double>& a, std::vector<double>& b, int m, int n) {
+//     #pragma omp parallel for
+//     for (int i = 0; i < m; i++) {
+//         for (int j = 0; j < n; j++) {
+//             a[i * n + j] = (i == j) ? 2.0 : 1.0;
+//         }
+//     }
+//     #pragma omp parallel for
+//     for (int i = 0; i < n; i++) {
+//         b[i] = 1.0;
+//     }
+// }
+
 void matrix_vector_product_omp(std::vector<double>& a, std::vector<double>& b, std::vector<double>& c, int m, int n) {
     #pragma omp parallel for
     for (int i = 0; i < m; i++) {

@@ -17,6 +17,15 @@ void init(std::vector<double>& A, std::vector<double>& b) {
     }
 }
 
+// void init(std::vector<double>& A, std::vector<double>& b) {
+//     #pragma omp parallel for
+//     for (int i = 0; i < N; i++) {
+//         for (int j = 0; j < N; j++)
+//             A[i * N + j] = (i == j) ? 2.0 : 1.0;
+//         b[i] = N + 1.0;
+//     }
+// }
+
 double norm(const std::vector<double>& x1, const std::vector<double>& x2) {
     double max = 0.0;
     for (int i = 0; i < N; i++) {
@@ -59,6 +68,7 @@ double solve_v2(const std::vector<double>& A, const std::vector<double>& b, int 
     
     omp_set_num_threads(threads);
     double t0 = omp_get_wtime();
+    int done = 0;
     
     #pragma omp parallel
     {
@@ -75,13 +85,14 @@ double solve_v2(const std::vector<double>& A, const std::vector<double>& b, int 
             for (int i = 0; i < N; i++)
                 x[i] = x_new[i];
             
-            int done = 0;
             #pragma omp single
             {
+                done = 0;
                 if (norm(x, x_new) < TOL) {
                     done = 1;
                 }
             }
+            // #pragma omp barrier
             if (done) break;
         }
     }
