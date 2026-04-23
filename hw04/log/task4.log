@@ -1,0 +1,24 @@
+2026-04-22 18:37:07,084 - INFO - Camera 0 started: 1280x720
+2026-04-22 18:37:07,139 - INFO - Window created. FPS: 60.0
+2026-04-22 18:37:07,170 - INFO - Started SensorX_1 (100.0Hz) in process
+2026-04-22 18:37:07,179 - INFO - Started SensorX_2 (10.0Hz) in process
+2026-04-22 18:37:07,190 - INFO - Started SensorX_3 (1.0Hz) in process
+2026-04-22 18:37:15,231 - INFO - Exit requested
+2026-04-22 18:37:15,773 - INFO - Window destroyed.
+2026-04-22 18:37:15,774 - INFO - Done.
+2026-04-22 18:37:19,911 - INFO - Camera 0 started: 1280x720
+2026-04-22 18:37:19,956 - INFO - Window created. FPS: 60.0
+2026-04-22 18:37:19,958 - INFO - Started SensorX_1 (100.0Hz) in thread
+2026-04-22 18:37:19,958 - INFO - Started SensorX_2 (10.0Hz) in thread
+2026-04-22 18:37:19,961 - INFO - Started SensorX_3 (1.0Hz) in thread
+2026-04-22 18:37:32,419 - INFO - Exit requested
+2026-04-22 18:37:33,006 - INFO - Window destroyed.
+2026-04-22 18:37:33,019 - INFO - Done.
+2026-04-22 18:37:41,103 - INFO - Camera 0 started: 1280x720
+2026-04-22 18:37:41,150 - INFO - Window created. FPS: 60.0
+2026-04-22 18:37:41,179 - INFO - Started SensorX_1 (100.0Hz) in process
+2026-04-22 18:37:41,189 - INFO - Started SensorX_2 (10.0Hz) in process
+2026-04-22 18:37:41,198 - INFO - Started SensorX_3 (1.0Hz) in process
+2026-04-22 18:37:46,634 - INFO - Exit requested
+2026-04-22 18:37:46,755 - INFO - Window destroyed.
+2026-04-22 18:37:46,755 - INFO - Done.
