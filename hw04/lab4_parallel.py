@@ -37,10 +37,11 @@ class SensorX(Sensor):
         return self._data
 
 class SensorCam(Sensor):
-    def __init__(self, cam_id: int, resolution: tuple):
+    def __init__(self, cam_id: int, resolution: tuple, stop_event=None):
         self.q = queue.Queue(maxsize=1)
         self.running = True
         self.cap = cv2.VideoCapture(cam_id)
+        self.stop_event = stop_event
         
         if not self.cap.isOpened():
             logger.error(f"Камера {cam_id} не найдена или недоступна.")
@@ -54,12 +55,28 @@ class SensorCam(Sensor):
         logger.info(f"Camera {cam_id} started: {resolution[0]}x{resolution[1]}")
 
     def _loop(self):
+        error_count = 0
+        max_errors = 10
+
         while self.running:
             ret, frame = self.cap.read()
             if not ret:
-                logger.error("Error frame reading. Check conection first")
+                error_count += 1
+
+                if error_count > max_errors:
+                    logger.error(f"Camera disconnected or failed after {error_count} errors. Shutting down...")
+                    self.running = False
+
+                    if self.stop_event:
+                        self.stop_event.set()
+                    break
+
+                if error_count % 5 == 0:
+                    logging.warning(f"Camera read error ({error_count}/{max_errors}). Check connection.")
                 time.sleep(0.1)
                 continue
+            error_count = 0
+
             try:
                 self.q.put_nowait((time.time(), frame))
             except queue.Full:
@@ -137,13 +154,12 @@ def main():
         logger.error("Invalid format. Use: WxH")
         sys.exit(1)
 
-    cam = SensorCam(args.camera, resolution)
-    win = WindowImage(args.display_freq)
-    
     if args.mode == 'process':
         stop_event = multiprocessing.Event()
     else:
         stop_event = threading.Event()
+    cam = SensorCam(args.camera, resolution, stop_event)
+    win = WindowImage(args.display_freq)
 
     delays = [0.01, 0.1, 1.0]
     queues = []
@@ -165,6 +181,10 @@ def main():
 
     try:
         while True:
+            if stop_event.is_set():
+                logger.info(f"Camera {args.camera} stopped.")
+                break
+
             _, frame = cam.get()
             if frame is not None:
                 last_frame = frame.copy()
@@ -192,8 +212,9 @@ def main():
                 logger.info("Exit requested")
                 break
     except KeyboardInterrupt:
-        pass
+        logger.info("Keyboard interrupt received")
     finally:
+        logger.info("Shutting down all resources...")
         stop_event.set()
         for worker_obj in workers:
             worker_obj.join(timeout=2.0)
